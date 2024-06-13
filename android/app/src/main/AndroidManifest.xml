@@ -1,13 +1,16 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.flutter_subtitle_test">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:label="flutter_subtitle_test"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <uses-permission android:name="android.permission.INTERNET"/>
-        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"
             android:supportsPictureInPicture="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
@@ -15,9 +18,7 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
-            <service
-           android:name=".PipFlutterPlayerService"
-           android:stopWithTask="false" />
+
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
@@ -36,5 +37,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <service
+            android:name=".PipFlutterPlayerService"
+            android:stopWithTask="false" />
     </application>
 </manifest>
